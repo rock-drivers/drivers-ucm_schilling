@@ -1,6 +1,6 @@
 <package>
   <description brief="Driver for Schilling UCMs">
-  This package contains a driver for the Schilling UCMs. Not implemented yet.
+  This package contains a driver for the Schilling UCMs.
   </description>
   <author>Sitta Buhmann/sbuhmann@marum.de</author>
   <license></license>
