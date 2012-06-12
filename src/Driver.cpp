@@ -20,13 +20,11 @@ Driver::Driver(const Config& config)
 
 void Driver::collectData()
 {
-  cout <<"collectData" <<endl;
   sendReadMsg();
   read(2000);
   mData.time = base::Time::now();
   uint16_t val =  (uint16_t)getReg(raw::UCM_AD2_LOW);
   val |= getReg(raw::UCM_AD2_HIGH) << 8;
-  //cout <<"value: " <<val <<endl;
   //calculate percentage
   int count = val;
   int offset = 0;
