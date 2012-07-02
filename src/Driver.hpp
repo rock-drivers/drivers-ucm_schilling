@@ -19,8 +19,10 @@ namespace ucm_schilling
         /** sends Register Read command
          */
         void collectData();
-
-        ucm_schilling::UcmData getData() const;
+	
+	ucm_schilling::UcmData getData() const;
+	
+	ucm_schilling::UcmStatus getStatus() const;
 
         void dumpData() const;
 	
@@ -29,6 +31,7 @@ namespace ucm_schilling
        
     private:
         ucm_schilling::UcmData mData;
+	ucm_schilling::UcmStatus mStatus;
 	Config mConfig;
     };
 

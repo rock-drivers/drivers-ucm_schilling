@@ -7,6 +7,11 @@ namespace ucm_schilling {
     
 #define ADDR_UCM 0x60
 
+#define UCM_STAT_FAIL_AD	0x01
+#define UCM_STAT_FAIL_DA	0x02
+#define UCM_STAT_FAIL_EEPROM	0x04
+
+
     enum UCM_REGISTER {
       UCM_STATUS          = 0x00,
       UCM_AD1_HIGH        = 0x01,

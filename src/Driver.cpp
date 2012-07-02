@@ -10,11 +10,11 @@ Driver::Driver(const Config& config)
   : base_schilling::Driver(64),
     mConfig(config)
 {
-  mData.percentage = 0;
   setAddress(ADDR_UCM);  
-  std::vector<uint8_t> regs(2);
-  regs[0] = raw::UCM_AD2_HIGH;
-  regs[1] = raw::UCM_AD2_LOW;
+  std::vector<uint8_t> regs(3);
+  regs[0] = raw::UCM_STATUS;
+  regs[1] = raw::UCM_AD2_HIGH;
+  regs[2] = raw::UCM_AD2_LOW;
   setRegs(regs);  
 }
 
@@ -22,6 +22,8 @@ void Driver::collectData()
 {
   sendReadMsg();
   read(2000);
+  mStatus.time = base::Time::now();
+  mStatus.status = getReg(raw::UCM_STATUS);
   mData.time = base::Time::now();
   uint16_t val =  (uint16_t)getReg(raw::UCM_AD2_LOW);
   val |= getReg(raw::UCM_AD2_HIGH) << 8;
@@ -55,6 +57,11 @@ void Driver::collectData()
 ucm_schilling::UcmData Driver::getData() const
 {
   return mData;
+}
+
+ucm_schilling::UcmStatus Driver::getStatus() const
+{
+  return mStatus;
 }
 
 void Driver::dumpData() const

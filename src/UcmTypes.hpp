@@ -8,7 +8,18 @@ namespace ucm_schilling {
 
     struct UcmData {
         base::Time  time;
-        uint  percentage; 
+        uint  percentage;
+	UcmData()
+	  : time(base::Time::now()), percentage(0)
+	{}
+    };
+    
+    struct UcmStatus {
+	base::Time  time;
+	uint8_t status;
+	UcmStatus()
+	  : time(base::Time::now()), status(0)
+	{}
     };
     
 }
