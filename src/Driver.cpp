@@ -1,6 +1,7 @@
 #include "Driver.hpp"
 #include "UcmRaw.hpp"
 #include <iostream>
+#include <base/logging.h>
 
 using namespace ucm_schilling;
 using namespace std;
@@ -21,7 +22,7 @@ Driver::Driver(const Config& config)
 void Driver::collectData()
 {
   sendReadMsg();
-  read(2000);
+  read();
   mStatus.time = base::Time::now();
   mStatus.status = getReg(raw::UCM_STATUS);
   mData.time = base::Time::now();
@@ -31,6 +32,14 @@ void Driver::collectData()
   int count = val;
   int offset = 0;
   float coeff = 0;
+  if(count < mConfig.count0){
+    mData.percentage = 0;
+    return;
+  }
+  else if(count > mConfig.count100){
+    mData.percentage = 100;
+    return;
+  }
   if(count<=mConfig.count50){
       offset=mConfig.count0;
       if(mConfig.count50 != mConfig.count0){
