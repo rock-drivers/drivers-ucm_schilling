@@ -24,6 +24,9 @@ namespace ucm_schilling
 	
 	ucm_schilling::UcmStatus getStatus() const;
 
+	void setConfig(const ucm_schilling::Config &);
+
+
         void dumpData() const;
 	
 

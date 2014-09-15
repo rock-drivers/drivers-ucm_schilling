@@ -73,6 +73,11 @@ ucm_schilling::UcmStatus Driver::getStatus() const
   return mStatus;
 }
 
+void Driver::setConfig(const ucm_schilling::Config &conf)
+{
+   mConfig = conf;
+}
+
 void Driver::dumpData() const
 {
     cout << setprecision(3) << mData.time << " "
