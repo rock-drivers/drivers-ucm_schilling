@@ -61,6 +61,7 @@ void Driver::collectData()
   count -= offset;
   float fval = coeff*((float)count);
   mData.percentage = fval;
+  mData.count = val;
 }
 
 ucm_schilling::UcmData Driver::getData() const

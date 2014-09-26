@@ -9,8 +9,9 @@ namespace ucm_schilling {
 	struct UcmData {
 		base::Time  time;
 		uint  percentage;
+		int   count;
 	UcmData()
-	  : time(base::Time::now()), percentage(0)
+	  : time(base::Time::now()), percentage(0), count(0)
 	{}
 	};
 
