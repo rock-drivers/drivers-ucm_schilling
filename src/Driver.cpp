@@ -1,7 +1,7 @@
 #include "Driver.hpp"
 #include "UcmRaw.hpp"
 #include <iostream>
-#include <base/logging.h>
+#include <base/Logging.hpp>
 
 using namespace ucm_schilling;
 using namespace std;

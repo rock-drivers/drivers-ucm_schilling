@@ -1,7 +1,7 @@
 #ifndef UCM_SCHILLING_UCMTYPES_HPP
 #define UCM_SCHILLING_UCMTYPES_HPP
 
-#include <base/time.h>
+#include <base/Time.hpp>
 #include <vector>
 
 namespace ucm_schilling {
